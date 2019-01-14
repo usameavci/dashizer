@@ -1,0 +1,44 @@
+$color-white: #FFF;
+$color-border: #EEE;
+$color-up: #a6cb12;
+$color-down: #ff5959;
+
+.dashizer-pane {
+  border: 2px solid $color-border;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  transition: .32s;
+  background-color: $color-white;
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  &-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  &__changed {
+    transition: .32s;
+  }
+
+  &__up {
+    color: $color-up;
+    border-color: $color-up;
+  }
+
+  &__down {
+    color: $color-down;
+    border-color: $color-down;
+  }
+}

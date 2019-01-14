@@ -1,0 +1,7 @@
+.dashizer-dashboard {
+  &__classic {
+    display: grid;
+    grid-gap: 2rem;
+    min-height: 6rem;
+  }
+}

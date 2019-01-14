@@ -1,0 +1,67 @@
+{
+  "private": false,
+  "name": "dashizer",
+  "version": "0.1.0",
+  "description": "Dashizer is a custom dashboard framework",
+  "homepage": "https://github.com/usameavci/dashizer.git",
+  "repository": "https://github.com/usameavci/dashizer.git",
+  "author": "Üsame Fethullah AVCI <usameavci@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "dashboard",
+    "metrics",
+    "framework"
+  ],
+  "style": "dist/dashizer.min.css",
+  "main": "dist/dashizer.min",
+  "scripts": {
+    "dev-server": "cross-env NODE_ENV=development nodemon example/server.js --watch example",
+    "dev-client": "cross-env NODE_ENV=development webpack --progress --colors --watch",
+    "format": "prettier-standard 'src/**/*.js' && standard",
+    "dev": "npm-run-all --parallel dev-*",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dist": "npm-run-all format build"
+  },
+  "pre-commit": [
+    "format"
+  ],
+  "standard": {
+    "ignore": [
+      "dist/**/*",
+      "example/**/*"
+    ],
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "autoprefixer": "^9.4.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
+    "es6-promise": "^4.2.5",
+    "eslint": "^5.12.0",
+    "eslint-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier-standard": "^8.0.1",
+    "sass-loader": "^7.1.0",
+    "standard": "^12.0.1",
+    "standard-loader": "^6.0.1",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  }
+}

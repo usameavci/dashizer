@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation | Custom Dashboard Framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700|Raleway:400,600" rel="stylesheet">
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.4/build/styles/solarized-light.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/dashizer.css">
+    <link rel="stylesheet" type="text/css" href="/example/assets/docs.css">
+</head>
+
+<body>
+<div id="docs">
+    <div class="container">
+        <header>
+            <div class="left">
+                <a href="/" class="brand">dashizer.js</a>
+                <div class="brand-title">Documentation</div>
+            </div>
+            <div class="right">
+                <a href="https://github.com/usameavci/dashizer" class="header-link" target="_blank">
+                    <img src="/example/assets/github.svg" alt="Github" height="16">
+                    Github
+                </a>
+            </div>
+        </header>
+        <main>
+            <div class="api-doc">
+                <div class="api-doc-title">Classes</div>
+                <div class="api-doc-content">
+                    <div class="api-doc-items">
+                        <a class="item" href="#api-sources">
+                            <span class="item-label">N</span>
+                            <span class="item-name">Sources</span>
+                        </a>
+                        <a class="item" href="#">
+                            <span class="item-label">N</span>
+                            <span class="item-name">Panes</span>
+                        </a>
+                        <a class="item" href="#">
+                            <span class="item-label">N</span>
+                            <span class="item-name">Dashboards</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="api-doc" id="api-sources">
+                <div class="api-doc-title">Dashizer.Sources</div>
+                <div class="api-doc-content">
+                    <!-- <div class="api-doc-description"></div> -->
+                    <div class="api-doc">
+                        <div class="api-doc-title">Classes</div>
+                        <div class="api-doc-content">
+                            <div class="api-doc-items">
+                                <a class="item" href="#api-sources-text">
+                                    <span class="item-label bg-orange">C</span>
+                                    <span class="item-name">Text</span>
+                                </a>
+                                <a class="item" href="#api-sources-xhr">
+                                    <span class="item-label bg-orange">C</span>
+                                    <span class="item-name">Xhr</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="api-doc">
+                        <div class="api-doc-title" id="api-sources-text">Dashizer.Sources.Text()</div>
+                        <div class="api-doc-content paned">
+                            <div class="content-pane">
+                                <div class="api-doc-items small">
+                                    <a class="item" href="#api-sources-xhr-constructor">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">constructor (conf)</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-clone">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">clone()</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-onValueChanged">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">onValueChanged(callback: Function)</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-setData">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">setData()</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-getData">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">getData()</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content-pane">
+                                <div class="api-doc">
+                                    <div class="api-doc-title">constructor(conf: Object) : Text</div>
+                                    <div class="api-doc-content">
+                                        <h6>Example Usage</h6>
+                                        <pre class="javascript">
+var source = new Dashizer.Sources.Xhr()</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">clone() : Text</div>
+                                    <div class="api-doc-content">
+                                        <h6>Example usage</h6>
+                                        <pre class="javascript">
+source.setData('This is example text source');
+console.log(source.getData())
+// Promise {<resolved>: "This is example text source!"}
+
+var clonedSource = source.clone()
+clonedSource.setData('This is another example text source!');
+console.log(clonedSource.getData())
+// Promise {<resolved>: "This is another example text source!"}</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">onValueChanged(callback: Function) : Text</div>
+                                    <div class="api-doc-content">
+                                        <h6>Example usage</h6>
+                                        <pre class="javascript">
+source.setData('This is example text source');
+// Text {conf: {…}, data: "This is example text source", lastValue: null, events: {…}}
+
+source.onValueChanged(() => { console.log('value changed!') });
+// Text {conf: {…}, data: "This is example text source", lastValue: null, events: {…}}
+
+source.setData('changed!');
+// value changed!</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">setData(data: Object) : Text</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.setData({ message: 'exampleData' })
+// Xhr {conf: {…}, data: null, lastValue: null, events: {…}}</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">getData() : Promise</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+const promise = source.getData()
+// Promise {<pending>}
+
+promise.then(res => console.log(res))
+// { message: 'exampleData' }</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="api-doc">
+                        <div class="api-doc-title" id="api-sources-xhr">
+                            Dashizer.Sources.Xhr()
+                            <small class="text-red pull-right">( Inherited from Dashizer.Sources.Text )</small>
+                        </div>
+                        <div class="api-doc-content paned">
+                            <div class="content-pane">
+                                <div class="api-doc-items small">
+                                    <a class="item" href="#api-sources-xhr-getLastValue">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">getLastValue()</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-setUrl">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">setUrl(url : string)</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-getUrl">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">getUrl()</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-setHandler">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">setHandler(handlerFn : Function)</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-getHandler">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">getHandler()</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-setTimeout">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">setTimeout(timeout: Number)</span>
+                                    </a>
+                                    <a class="item" href="#api-sources-xhr-getTimeout">
+                                        <span class="item-label bg-orange-light">F</span>
+                                        <span class="item-name">getTimeout()</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="content-pane">
+                                <div class="api-doc">
+                                    <div class="api-doc-title">getLastValue() : String</div>
+                                    <div class="api-doc-content">
+                                        <h6>Example Usage</h6>
+                                        <pre class="javascript">
+source.getLastValue();
+// "last value from xhr request"</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">setUrl(url: String) : Text</div>
+                                    <div class="api-doc-content">
+                                        <h6>Example usage</h6>
+                                        <pre class="javascript">
+source.setUrl('/docs')
+// Xhr {conf: {…}, data: null, lastValue: null, events: {…}}</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">getUrl() : String</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.setUrl('/docs-changed')
+// Xhr {conf: {…}, data: null, lastValue: null, events: {…}}
+
+source.getUrl()
+// "/docs-changed"</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">setHandler() : Text</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.setHandler(function(rawResponse) {
+    return rawResponse.propertyYouWantToShow;
+});
+// Xhr {conf: {…}, data: null, lastValue: null, events: {…}}</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">getHandler() : Function</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.getHandler()
+// ƒ (rawResponse) {
+//     return rawResponse.propertyYouWantToShow;
+// }</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">setTimeout(timeout : Number) : Text</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.setTimeout(1000)
+// Xhr {conf: {…}, data: null, lastValue: null, events: {…}}</pre>
+                                    </div>
+                                </div>
+                                <div class="api-doc">
+                                    <div class="api-doc-title">getTimeout() : String</div>
+                                    <div class="api-doc-content">
+                                        <pre class="javascript">
+source.getTimeout()
+// 1000</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.4/build/highlight.min.js"></script>
+<script type="text/javascript" src="/dist/dashizer.js"></script>
+<script type="text/javascript" src="/example/assets/docs.js"></script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre').forEach((block) => {
+      hljs.highlightBlock(block)
+    })
+  })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "alias": "dashizer",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "builds": [
+    {
+      "src": "dist/**",
+      "use": "@now/static"
+    },
+    {
+      "src": "example/assets/**",
+      "use": "@now/static"
+    },
+    {
+      "src": "example/*.html",
+      "use": "@now/static"
+    },
+    {
+      "src": "example/server.js",
+      "use": "@now/node-server",
+      "config": {
+        "maxLambdaSize": "40mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "example/index.html"
+    },
+    {
+      "src": "/docs",
+      "dest": "example/docs.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "example/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
