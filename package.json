@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "dashizer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Dashizer is a custom dashboard framework",
   "homepage": "https://github.com/usameavci/dashizer.git",
   "repository": "https://github.com/usameavci/dashizer.git",
