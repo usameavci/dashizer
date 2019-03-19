@@ -2,17 +2,17 @@
  * Dashizer example
  */
 
-var elmCanvas = document.createElement('canvas');
+var elmCanvas = document.createElement('canvas')
 elmCanvas.id = 'example-canvas'
-document.body.append(elmCanvas);
+document.body.append(elmCanvas)
 
 function playSound (url) {
-  // var audio = document.createElement('audio')
-  // audio.style.display = 'none'
-  // audio.src = url
-  // audio.autoplay = true
-  // audio.onended = function() {audio.remove()}
-  // document.body.appendChild(audio)
+  var audio = document.createElement('audio')
+  audio.style.display = 'none'
+  audio.src = url
+  audio.autoplay = true
+  audio.onended = function() {audio.remove()}
+  document.body.appendChild(audio)
 }
 
 var onValueChanged = function(value, source) {
@@ -87,7 +87,7 @@ var pProjects = new Dashizer.Panes.Metric({
   columns: window.outerWidth < 768 ? 1 : 3,
   rows: 2,
   title: 'Projects',
-  source: sBase.clone().setUrl('/api/projects'),
+  source: sBase.clone().setUrl('/api/projects').setTimeout(10000),
   onValueChanged
 })
 
@@ -95,7 +95,7 @@ var pItems = new Dashizer.Panes.Metric({
   columns: window.outerWidth < 768 ? 1 : 3,
   rows: 2,
   title: 'Items',
-  source: sBase.clone().setUrl('/api/items'),
+  source: sBase.clone().setUrl('/api/items').setTimeout(15000),
   onValueChanged
 })
 
@@ -103,7 +103,7 @@ var pUsers = new Dashizer.Panes.Metric({
   columns: window.outerWidth < 768 ? 1 : 3,
   rows: 2,
   title: 'Users',
-  source: sBase.clone().setUrl('/api/users'),
+  source: sBase.clone().setUrl('/api/users').setTimeout(3000),
   onValueChanged
 })
 
@@ -111,7 +111,7 @@ var pSessions = new Dashizer.Panes.Metric({
   columns: window.outerWidth < 768 ? 1 : 3,
   rows: 2,
   title: 'Sessions',
-  source: sBase.clone().setUrl('/api/sessions'),
+  source: sBase.clone().setUrl('/api/sessions').setTimeout(20000),
   onValueChanged
 })
 

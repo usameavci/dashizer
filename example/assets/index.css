@@ -1,12 +1,12 @@
 *,
 ::after,
 ::before {
-    outline: 0px;
+    outline: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background-color: #fafafa;
     margin: 0;
     padding: 0;
