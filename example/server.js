@@ -25,7 +25,7 @@ App.use((req, res, next) => {
 })
 
 App.get('/docs', (req, res) => res.sendFile(path.join(__dirname, 'docs.html')))
-App.get('/api/products', (req, res) => res.randomValue(res, 1000000))
+App.get('/api/products', (req, res) => res.randomValue(res, 10000000000))
 App.get('/api/contracts', (req, res) => res.randomValue(res, 1000000))
 App.get('/api/projects', (req, res) => res.randomValue(res, 1000000))
 App.get('/api/items', (req, res) => res.randomValue(res, 1000000))
