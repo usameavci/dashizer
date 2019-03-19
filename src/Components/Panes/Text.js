@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import merge from 'lodash/merge'
 
 import FitText from 'Utils/FitText'
@@ -129,13 +130,14 @@ export default class Text {
       promise.then(() => setTimeout(this.fetchSource.bind(this), source.getTimeout()))
     }
 
-    promise.then(() => window.dispatchEvent(new window.Event('fittext')))
-
     return promise
   }
 
   setContentData (dom, value) {
     dom.content.innerHTML = value
+
+    const fitText = get(this, 'dom.content.fitText')
+    fitText && fitText.setCalculatedFontSize()
 
     return this
   }
@@ -159,7 +161,6 @@ export default class Text {
 
     setTimeout(() => {
       domClasses.remove(classUp, classDown, classChanged)
-      window.dispatchEvent(new window.Event('fittext'))
     }, 3 * 1000)
   }
 
