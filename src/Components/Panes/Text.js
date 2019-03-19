@@ -16,8 +16,6 @@ export default class Text {
         title: 'dashizer-pane-title',
         subtitle: 'dashizer-pane-subtitle',
         content: 'dashizer-pane-content',
-        up: 'dashizer-pane__up',
-        down: 'dashizer-pane__down',
         changed: 'dashizer-pane__changed'
       },
       extraClasses: [],
@@ -144,24 +142,6 @@ export default class Text {
 
   handlerValueChanged (value, source) {
     this.setContentData(this.dom, value)
-
-    if (source instanceof Xhr && source.getTimeout() <= 3000) return
-
-    const lastValue = source.getLastValue()
-    const isUp = parseFloat(value) > parseFloat(lastValue)
-    const isDown = parseFloat(value) < parseFloat(lastValue)
-    const domClasses = this.dom.pane.classList
-    const classUp = this.conf.classNames.up
-    const classDown = this.conf.classNames.down
-    const classChanged = this.conf.classNames.changed
-
-    domClasses.toggle(classUp, isUp)
-    domClasses.toggle(classDown, isDown)
-    domClasses.add(classChanged)
-
-    setTimeout(() => {
-      domClasses.remove(classUp, classDown, classChanged)
-    }, 3 * 1000)
   }
 
   onValueChanged (cb) {
