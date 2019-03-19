@@ -4,6 +4,7 @@ export default class FitText {
   constructor (element, conf) {
     const defaults = {
       increaseAmount: 1,
+      bufferSize: 5,
       minFontSize: this.getComputedNumber(document.body, 'font-size')
     }
 
@@ -97,7 +98,9 @@ export default class FitText {
     if (clonedElementWidth >= elementWidth) {
       const calculatedFontSize = clonedElemetFontSize - this.conf.increaseAmount
 
-      return calculatedFontSize < this.conf.minFontSize ? this.conf.minFontSize : calculatedFontSize
+      return calculatedFontSize < this.conf.minFontSize
+        ? this.conf.minFontSize
+        : calculatedFontSize - this.conf.bufferSize
     }
 
     return this.calculateFontSize()
