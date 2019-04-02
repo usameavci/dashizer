@@ -7111,6 +7111,13 @@ function (_Text) {
       timeout: 15 * 1000,
       handler: function handler(r) {
         return r;
+      },
+      xhrOptions: {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
       }
     };
     conf = Object.assign({}, defaults, conf);
