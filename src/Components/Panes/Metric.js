@@ -23,7 +23,7 @@ export default class Metric extends Text {
 
   handlerValueChanged (value, source) {
     this.setContentData(this.dom, value)
-    console.log('[Metric.js:26]', source instanceof Xhr, source.getTimeout())
+
     if (source instanceof Xhr && source.getTimeout() < 3000) return
 
     const lastValue = source.getLastValue()
