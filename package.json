@@ -13,7 +13,7 @@
     "framework"
   ],
   "style": "dist/dashizer.min.css",
-  "main": "dist/dashizer.min",
+  "main": "dist/dashizer.min.js",
   "scripts": {
     "dev-server": "cross-env NODE_ENV=development nodemon example/server.js --watch example",
     "dev-client": "cross-env NODE_ENV=development webpack --progress --colors --watch",
