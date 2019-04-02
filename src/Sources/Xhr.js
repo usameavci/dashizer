@@ -5,7 +5,14 @@ export default class Xhr extends Text {
     const defaults = {
       url: null,
       timeout: 15 * 1000,
-      handler: r => r
+      handler: r => r,
+      xhrOptions: {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        }
+      }
     }
 
     conf = Object.assign({}, defaults, conf)
